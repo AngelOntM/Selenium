@@ -5,7 +5,7 @@
             "action": "click",
             "by": "LINK_TEXT",
             "value": "Promociones",
-            "wait": 2
+            "wait": 5
         },
         {
             "action": "checkbox",
@@ -19,13 +19,14 @@
             "by": "CSS_SELECTOR",
             "value": "#cat-search-box",
             "input_value": "Laptop",
+            "hidden": false,
             "wait": 1
         },
         {
             "action": "click",
             "by": "CSS_SELECTOR",
             "value": "#content > div.grid-x.listlocator.listlocatortop.big > div.cell.small-5.locationitem > form > div.small-4.cell > button",
-            "wait": 2
+            "wait": 5
         },
         {
             "action": "find_elements",
@@ -49,7 +50,37 @@
                     "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > div:nth-child(2) > div.emproduct_right_price_left > div.emdeliverycost > span.deliveryvalue"
                 }
             ],
-            "wait": 0
+            "wait": 1
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#emlistpager > div > a:nth-child(3)",
+            "wait": 5
+        },
+        {
+            "action": "find_elements",
+            "by": "CSS_SELECTOR",
+            "value": "#productList > li",
+            "columns": [
+                {
+                    "header": "Producto",
+                    "selector_pattern": "#productList-{x}"
+                },
+                {
+                    "header": "Precio Original",
+                    "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > span > del"
+                },
+                {
+                    "header": "Precio Promocion",
+                    "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > div:nth-child(2) > div.emproduct_right_price_left > label"
+                },
+                {
+                    "header": "Coste de Envio",
+                    "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > div:nth-child(2) > div.emproduct_right_price_left > div.emdeliverycost > span.deliveryvalue"
+                }
+            ],
+            "wait": 5
         }
     ],
     "output": {

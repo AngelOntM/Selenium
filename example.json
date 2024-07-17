@@ -12,6 +12,7 @@
             "by": "CSS_SELECTOR",
             "value": "#searchInput",
             "input_value": "Laptop",
+            "hidden": false,
             "wait": 2
         },
         {
@@ -33,6 +34,11 @@
             "value": "#freeShippingCheckbox",
             "check": true,
             "wait": 2
+        },
+        {
+            "action": "keyboard",
+            "key": "ENTER",
+            "wait": 1
         },
         {
             "action": "find_elements",

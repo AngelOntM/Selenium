@@ -1,95 +1,79 @@
 {
-    "start_url": "https://uttorreon.mx",
+    "start_url": "https://www.meteored.mx",
     "actions": [
         {
             "action": "input",
             "by": "CSS_SELECTOR",
-            "value": "#email",
-            "input_value": "ajom0507@hotmail.com",
-            "wait": 0
+            "value": "#search_pc",
+            "input_value": "Torreon",
+            "hidden": false,
+            "wait": 5
         },
         {
-            "action": "input",
-            "by": "CSS_SELECTOR",
-            "value": "#password",
-            "input_value": "",
-            "wait": 0
-        },
-        {
-            "action": "click",
-            "by": "CSS_SELECTOR",
-            "value": "body > div > div.login-box.animated.fadeInDown > div.login-body > form > div:nth-child(5) > div > div > button",
-            "wait": 2
-        },
-        {
-            "action": "click",
-            "by": "LINK_TEXT",
-            "value": "Mi Espacio",
-            "wait": 0
-        },
-        {
-            "action": "click",
-            "by": "LINK_TEXT",
-            "value": "Finanzas",
-            "wait": 0
-        },
-        {
-            "action": "click",
-            "by": "LINK_TEXT",
-            "value": "Mis Pagos",
-            "wait": 2
-        },
-        {
-            "action": "click",
-            "by": "CSS_SELECTOR",
-            "value": "#TabConsultar > div > div > div > div.panel-body > div > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list > span > button",
+            "action": "keyboard",
+            "key": "DOWN",
             "wait": 1
         },
         {
+            "action": "keyboard",
+            "key": "DOWN",
+            "wait": 1
+        },
+        {
+            "action": "keyboard",
+            "key": "ENTER",
+            "wait": 10
+        },
+        {
             "action": "click",
             "by": "CSS_SELECTOR",
-            "value": "#TabConsultar > div > div > div > div.panel-body > div > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list > span > ul > li.active > a",
-            "wait": 2
+            "value": "body > div.franjas.container > div:nth-child(1) > section > aside > ul:nth-child(1) > li:nth-child(3) > a",
+            "wait": 10
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#tipoResumen_2",
+            "wait": 10
         },
         {
             "action": "find_elements",
             "by": "CSS_SELECTOR",
-            "value": "#Tabla > tbody > tr",
+            "value": "#body_tanio > tr",
             "columns": [
                 {
-                    "header": "Periodo",
+                    "header": "MES",
                     "selector_pattern": "td:nth-child(1)"
                 },
                 {
-                    "header": "Folio Recibo",
+                    "header": "T. MEDIA",
                     "selector_pattern": "td:nth-child(2)"
                 },
                 {
-                    "header": "Concepto",
+                    "header": "T. MÁX",
                     "selector_pattern": "td:nth-child(3)"
                 },
                 {
-                    "header": "Total",
+                    "header": "T. MÍN",
                     "selector_pattern": "td:nth-child(4)"
                 },
                 {
-                    "header": "Pagado",
+                    "header": "V. MEDIA VIENTO",
                     "selector_pattern": "td:nth-child(5)"
                 },
                 {
-                    "header": "Estado del Pago",
+                    "header": "RACHAS MÁX",
                     "selector_pattern": "td:nth-child(6)"
                 },
                 {
-                    "header": "Fecha de vencimiento",
+                    "header": "PRESIÓN MEDIA",
                     "selector_pattern": "td:nth-child(7)"
                 }
             ],
-            "wait": 0
+            "wait": 1
         }
     ],
     "output": {
-        "filename": "Calificaciones.xlsx"
+        "filename": "Clima.xlsx"
     }
 }
-

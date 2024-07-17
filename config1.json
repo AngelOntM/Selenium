@@ -6,13 +6,15 @@
             "by": "CSS_SELECTOR",
             "value": "#email",
             "input_value": "ajom0507@hotmail.com",
+            "hidden": false,
             "wait": 0
         },
         {
             "action": "input",
             "by": "CSS_SELECTOR",
             "value": "#password",
-            "input_value": "",
+            "input_value": "SIAUTT",
+            "hidden": true,
             "wait": 0
         },
         {
@@ -89,7 +91,7 @@
         }
     ],
     "output": {
-        "filename": "Calificaciones.xlsx"
+        "filename": "Finanzas.xlsx"
     }
 }
 
