@@ -1,67 +1,87 @@
 import unittest
+import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 from openpyxl import Workbook
+from selenium.webdriver.support.ui import Select
 
-
-class CyberpuertaPromociones(unittest.TestCase):
+class WebScraper(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Firefox()
 
-    def test_promociones(self):
+    def execute_actions(self, actions):
         driver = self.driver
-        driver.get("https://www.cyberpuerta.mx")
-        time.sleep(5)
+        elements = None
+        columns = []
+        for action in actions:
+            if action['action'] == 'click':
+                element = driver.find_element(getattr(By, action['by']), action['value'])
+                element.click()
+            elif action['action'] == 'input':
+                element = driver.find_element(getattr(By, action['by']), action['value'])
+                element.clear()
+                element.send_keys(action['input_value'])
+            elif action['action'] == 'select':
+                select_element = driver.find_element(getattr(By, action['by']), action['value'])
+                select = Select(select_element)
+                select.select_by_visible_text(action['option_value'])
+            elif action['action'] == 'radio':
+                radio_element = driver.find_element(getattr(By, action['by']), action['value'])
+                radio_element.click()
+            elif action['action'] == 'checkbox':
+                checkbox_element = driver.find_element(getattr(By, action['by']), action['value'])
+                if action.get('check', True):
+                    if not checkbox_element.is_selected():
+                        checkbox_element.click()
+                else:
+                    if checkbox_element.is_selected():
+                        checkbox_element.click()
+            elif action['action'] == 'find_elements':
+                elements = driver.find_elements(getattr(By, action['by']), action['value'])
+                columns = action['columns']
+            if 'wait' in action:
+                time.sleep(action['wait'])
+        return elements, columns
 
-        # Navega a la sección de promociones
-        promociones_link = driver.find_element(By.LINK_TEXT, 'Promociones')
-        promociones_link.click()
+    def test_web_scraper(self):
+        with open('config1.json') as f:
+            config = json.load(f)
 
-        # Espera a que la página de promociones cargue completamente
-        time.sleep(10)
+        driver = self.driver
+        driver.get(config['start_url'])
+        time.sleep(2)
 
-        # Encuentra el contenedor de la lista de productos
-        lista_productos = driver.find_element(By.CSS_SELECTOR, '#productList')
-
-        # Inicializa un contador para iterar sobre los productos
-        x = 1
+        elements, columns = self.execute_actions(config['actions'])
 
         # Crea un nuevo libro de Excel
         wb = Workbook()
         ws = wb.active
-        ws.title = "Promociones Cyberpuerta"
+        ws.title = "Data Extracted"
 
         # Escribe la cabecera del archivo Excel
-        ws.append(["Producto", "Precio"])
+        headers = [column['header'] for column in columns]
+        ws.append(headers)
 
-        while True:
-            try:
-                # Selector dinámico para cada producto
-                producto_selector = f'#productList-{x}'
-                producto = lista_productos.find_element(By.CSS_SELECTOR, producto_selector)
-
-                # Selector para el precio
-                precio_selector = '#productList > li:nth-child(1) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > div:nth-child(2) > div.emproduct_right_price_left > label'
-                nombre = producto.text  # Obtén el texto del nombre del producto
-                precio = driver.find_element(By.CSS_SELECTOR, precio_selector).text  # Obtén el texto del precio
-
-                print(f'Producto: {nombre} - Precio: {precio}')
-                # Agrega los datos al archivo Excel
-                ws.append([nombre, precio])
-
-                x += 1  # Incrementa el contador para el siguiente producto
-            except:
-                # Si no se encuentra más productos, rompe el bucle
-                break
+        for x, element in enumerate(elements, start=1):
+            row = []
+            for column in columns:
+                try:
+                    selector = column['selector_pattern'].format(x=x)
+                    cell_data = element.find_element(By.CSS_SELECTOR, selector).text
+                    row.append(cell_data)
+                except Exception as e:
+                    print(f"Error al procesar elemento: {e}")
+                    print(element.get_attribute('outerHTML'))
+                    row.append("")  # Añadir una celda vacía en caso de error
+            ws.append(row)
 
         # Guarda el archivo Excel
-        wb.save("Promociones_Cyberpuerta.xlsx")
+        wb.save(config['output']['filename'])
 
     def tearDown(self):
         self.driver.close()
-
 
 if __name__ == "__main__":
     unittest.main()

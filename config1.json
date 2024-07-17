@@ -1,0 +1,95 @@
+{
+    "start_url": "https://uttorreon.mx",
+    "actions": [
+        {
+            "action": "input",
+            "by": "CSS_SELECTOR",
+            "value": "#email",
+            "input_value": "ajom0507@hotmail.com",
+            "wait": 0
+        },
+        {
+            "action": "input",
+            "by": "CSS_SELECTOR",
+            "value": "#password",
+            "input_value": "",
+            "wait": 0
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "body > div > div.login-box.animated.fadeInDown > div.login-body > form > div:nth-child(5) > div > div > button",
+            "wait": 2
+        },
+        {
+            "action": "click",
+            "by": "LINK_TEXT",
+            "value": "Mi Espacio",
+            "wait": 0
+        },
+        {
+            "action": "click",
+            "by": "LINK_TEXT",
+            "value": "Finanzas",
+            "wait": 0
+        },
+        {
+            "action": "click",
+            "by": "LINK_TEXT",
+            "value": "Mis Pagos",
+            "wait": 2
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#TabConsultar > div > div > div > div.panel-body > div > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list > span > button",
+            "wait": 1
+        },
+        {
+            "action": "click",
+            "by": "LINK_TEXT",
+            "value": "20",
+            "wait": 2
+        },
+        {
+            "action": "find_elements",
+            "by": "CSS_SELECTOR",
+            "value": "#Tabla > tbody > tr",
+            "columns": [
+                {
+                    "header": "Periodo",
+                    "selector_pattern": "td:nth-child(1)"
+                },
+                {
+                    "header": "Folio Recibo",
+                    "selector_pattern": "td:nth-child(2)"
+                },
+                {
+                    "header": "Concepto",
+                    "selector_pattern": "td:nth-child(3)"
+                },
+                {
+                    "header": "Total",
+                    "selector_pattern": "td:nth-child(4)"
+                },
+                {
+                    "header": "Pagado",
+                    "selector_pattern": "td:nth-child(5)"
+                },
+                {
+                    "header": "Estado del Pago",
+                    "selector_pattern": "td:nth-child(6)"
+                },
+                {
+                    "header": "Fecha de vencimiento",
+                    "selector_pattern": "td:nth-child(7)"
+                }
+            ],
+            "wait": 0
+        }
+    ],
+    "output": {
+        "filename": "Calificaciones.xlsx"
+    }
+}
+

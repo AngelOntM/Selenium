@@ -1,0 +1,57 @@
+{
+    "start_url": "https://www.example.com",
+    "actions": [
+        {
+            "action": "click",
+            "by": "LINK_TEXT",
+            "value": "Promociones",
+            "wait": 10
+        },
+        {
+            "action": "input",
+            "by": "CSS_SELECTOR",
+            "value": "#searchInput",
+            "input_value": "Laptop",
+            "wait": 2
+        },
+        {
+            "action": "select",
+            "by": "CSS_SELECTOR",
+            "value": "#categorySelect",
+            "option_value": "Electronics",
+            "wait": 1
+        },
+        {
+            "action": "radio",
+            "by": "CSS_SELECTOR",
+            "value": "input[name='delivery'][value='fast']",
+            "wait": 3
+        },
+        {
+            "action": "checkbox",
+            "by": "CSS_SELECTOR",
+            "value": "#freeShippingCheckbox",
+            "check": true,
+            "wait": 2
+        },
+        {
+            "action": "find_elements",
+            "by": "CSS_SELECTOR",
+            "value": "#productList > li",
+            "columns": [
+                {
+                    "header": "Producto",
+                    "selector_pattern": "#productList-{x}"
+                },
+                {
+                    "header": "Precio",
+                    "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > div:nth-child(2) > div.emproduct_right_price_left > label"
+                }
+            ],
+            "wait": 5
+        }
+    ],
+    "output": {
+        "filename": "Promociones.xlsx"
+    }
+}

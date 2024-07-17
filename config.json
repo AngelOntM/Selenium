@@ -1,0 +1,58 @@
+{
+    "start_url": "https://www.cyberpuerta.mx",
+    "actions": [
+        {
+            "action": "click",
+            "by": "LINK_TEXT",
+            "value": "Promociones",
+            "wait": 2
+        },
+        {
+            "action": "checkbox",
+            "by": "CSS_SELECTOR",
+            "value": "#cp-pf-sidebar > div.cp-pf-box > div > div:nth-child(2) > div > ul > li:nth-child(1) > label > input[type=checkbox]",
+            "check": true,
+            "wait": 1
+        },
+        {
+            "action": "input",
+            "by": "CSS_SELECTOR",
+            "value": "#cat-search-box",
+            "input_value": "Laptop",
+            "wait": 1
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#content > div.grid-x.listlocator.listlocatortop.big > div.cell.small-5.locationitem > form > div.small-4.cell > button",
+            "wait": 2
+        },
+        {
+            "action": "find_elements",
+            "by": "CSS_SELECTOR",
+            "value": "#productList > li",
+            "columns": [
+                {
+                    "header": "Producto",
+                    "selector_pattern": "#productList-{x}"
+                },
+                {
+                    "header": "Precio Original",
+                    "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > span > del"
+                },
+                {
+                    "header": "Precio Promocion",
+                    "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > div:nth-child(2) > div.emproduct_right_price_left > label"
+                },
+                {
+                    "header": "Coste de Envio",
+                    "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > div:nth-child(2) > div.emproduct_right_price_left > div.emdeliverycost > span.deliveryvalue"
+                }
+            ],
+            "wait": 0
+        }
+    ],
+    "output": {
+        "filename": "Promociones.xlsx"
+    }
+}
