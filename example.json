@@ -19,25 +19,19 @@
             "action": "select",
             "by": "CSS_SELECTOR",
             "value": "#categorySelect",
-            "option_value": "Electronics",
+            "input_value": "Electronics",
             "wait": 1
-        },
-        {
-            "action": "radio",
-            "by": "CSS_SELECTOR",
-            "value": "input[name='delivery'][value='fast']",
-            "wait": 3
         },
         {
             "action": "checkbox",
             "by": "CSS_SELECTOR",
             "value": "#freeShippingCheckbox",
-            "check": true,
+            "input_value": true,
             "wait": 2
         },
         {
             "action": "keyboard",
-            "key": "ENTER",
+            "input_value": "ENTER",
             "wait": 1
         },
         {

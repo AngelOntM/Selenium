@@ -1,0 +1,30 @@
+{
+    "start_url": "Cualquier URL válida",
+    "actions-example": "Lista de acciones a realizar en la automatización",
+    "actions": [
+        {
+            "action": "click / input / select / checkbox / keyboard / find_elements",
+            "by": "LINK_TEXT / ID / NAME / TAG_NAME / CLASS_NAME / CSS_SELECTOR / XPATH",
+            "value": "El valor del selector que identifica al elemento en la página. en base al 'by' seleccionado",
+            "input_value": "Valor a ingresar en un campo de texto, select o keyboard",
+            "hidden": "true / false (Opcional) Si la action es input y se desea que el valor este oculto",
+            "wait": "Tiempo de espera en segundos después de realizar la acción"
+        },
+        {
+            "action": "find_elements",
+            "by": "El valor del selector que identifica al elemento en la página. en base al 'by' seleccionado",
+            "value": "El valor del selector que identifica al elemento en la página. en base al 'by' seleccionado",
+            "columns-examples": "Lista de columnas a extraer de la tabla",
+            "columns": [
+                {
+                    "header": "Encabezado de la columna que se extraerá.",
+                    "selector_pattern": "Patrón de selector CSS para encontrar el dato en cada fila."
+                }
+            ],
+            "wait": "Tiempo de espera en segundos después de realizar la acción"
+        }
+    ],
+    "output": {
+        "filename": "Nombre del archivo Excel donde se guardarán los datos extraídos."
+    }
+}

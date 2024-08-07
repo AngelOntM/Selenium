@@ -33,21 +33,18 @@ class WebScraper(unittest.TestCase):
             elif action['action'] == 'select':
                 select_element = driver.find_element(getattr(By, action['by']), action['value'])
                 select = Select(select_element)
-                select.select_by_visible_text(action['option_value'])
-            elif action['action'] == 'radio':
-                radio_element = driver.find_element(getattr(By, action['by']), action['value'])
-                radio_element.click()
+                select.select_by_visible_text(action['input_value'])
             elif action['action'] == 'checkbox':
                 checkbox_element = driver.find_element(getattr(By, action['by']), action['value'])
-                if checkbox_element.is_selected() != action.get('selected', True):
+                if checkbox_element.is_selected() != action.get('selected', action['input_value']):
                     checkbox_element.click()
             elif action['action'] == 'keyboard':
                 if 'element' in action:
                     element = driver.find_element(getattr(By, action['by']), action['value'])
-                    element.send_keys(getattr(Keys, action['key'].upper()))
+                    element.send_keys(getattr(Keys, action['input_value'].upper()))
                 else:
                     action_chain = ActionChains(driver)
-                    action_chain.send_keys(getattr(Keys, action['key'].upper())).perform()
+                    action_chain.send_keys(getattr(Keys, action['input_value'].upper())).perform()
             elif action['action'] == 'find_elements':
                 elements = driver.find_elements(getattr(By, action['by']), action['value'])
                 columns = action['columns']
@@ -78,7 +75,7 @@ class WebScraper(unittest.TestCase):
 
     def test_web_scraper(self):
         load_dotenv(dotenv_path='config.env')
-        with open('config1.json', encoding='utf-8') as f:
+        with open('config.json', encoding='utf-8') as f:
             config = json.load(f)
 
         driver = self.driver

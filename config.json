@@ -11,7 +11,7 @@
             "action": "checkbox",
             "by": "CSS_SELECTOR",
             "value": "#cp-pf-sidebar > div.cp-pf-box > div > div:nth-child(2) > div > ul > li:nth-child(1) > label > input[type=checkbox]",
-            "check": true,
+            "input_value": true,
             "wait": 1
         },
         {
@@ -56,7 +56,7 @@
             "action": "click",
             "by": "CSS_SELECTOR",
             "value": "#emlistpager > div > a:nth-child(3)",
-            "wait": 5
+            "wait": 10
         },
         {
             "action": "find_elements",
@@ -80,7 +80,7 @@
                     "selector_pattern": "#productList > li:nth-child({x}) > div > form > div.emproduct_right > div.clear.emproduct_left_attribute_price > div.emproduct_right_price > div:nth-child(2) > div.emproduct_right_price_left > div.emdeliverycost > span.deliveryvalue"
                 }
             ],
-            "wait": 5
+            "wait": 1
         }
     ],
     "output": {
