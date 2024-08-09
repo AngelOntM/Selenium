@@ -1,5 +1,6 @@
 {
     "start_url": "https://uttorreon.mx",
+    "actions_groups": [{
     "actions": [
         {
             "action": "input",
@@ -92,6 +93,6 @@
     ],
     "output": {
         "filename": "Finanzas.xlsx"
-    }
+    }}]
 }
 

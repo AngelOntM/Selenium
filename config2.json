@@ -1,5 +1,6 @@
 {
     "start_url": "https://www.meteored.mx",
+    "actions_groups": [{
     "actions": [
         {
             "action": "input",
@@ -75,5 +76,5 @@
     ],
     "output": {
         "filename": "Clima.xlsx"
-    }
+    }}]
 }

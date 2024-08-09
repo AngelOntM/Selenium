@@ -1,5 +1,6 @@
 {
     "start_url": "https://www.cyberpuerta.mx",
+    "actions_groups": [{
     "actions": [
         {
             "action": "click",
@@ -85,5 +86,5 @@
     ],
     "output": {
         "filename": "Promociones.xlsx"
-    }
+    }}]
 }

@@ -1,18 +1,16 @@
-import unittest
+import os
 import json
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 import time
 from openpyxl import Workbook
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import StaleElementReferenceException
-import os
 from dotenv import load_dotenv
 
-class WebScraper(unittest.TestCase):
-
+class WebScraper:
     def setUp(self):
         self.driver = webdriver.Firefox()
 
@@ -75,29 +73,36 @@ class WebScraper(unittest.TestCase):
 
     def test_web_scraper(self):
         load_dotenv(dotenv_path='config.env')
-        with open('config.json', encoding='utf-8') as f:
+        with open('config2.json', encoding='utf-8') as f:
             config = json.load(f)
 
         driver = self.driver
         driver.get(config['start_url'])
         time.sleep(5)
 
-        # Crea un nuevo libro de Excel
-        wb = Workbook()
-        ws = wb.active
-        ws.title = "Data Extracted"
-        headers_written = False
+        for group in config['actions_groups']:
+            # Crea un nuevo libro de Excel para cada grupo de acciones
+            wb = Workbook()
+            ws = wb.active
+            ws.title = "Data Extracted"
+            headers_written = False
 
-        try:
-            headers_written = self.execute_actions(config['actions'], ws, headers_written)
-        except Exception as e:
-            print(f"Error general al ejecutar acciones: {e}")
+            try:
+                headers_written = self.execute_actions(group['actions'], ws, headers_written)
+            except Exception as e:
+                print(f"Error general al ejecutar acciones: {e}")
 
-        # Guarda el archivo Excel
-        wb.save(config['output']['filename'])
+            # Guarda el archivo Excel para cada grupo de acciones
+            wb.save(group['output']['filename'])
 
     def tearDown(self):
         self.driver.quit()
 
+# Ejemplo de uso
 if __name__ == "__main__":
-    unittest.main()
+    scraper = WebScraper()
+    scraper.setUp()
+    try:
+        scraper.test_web_scraper()
+    finally:
+        scraper.tearDown()

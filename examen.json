@@ -1,0 +1,263 @@
+{
+    "start_url": "https://www.tecnm.mx/?vista=Asignaturas_test",
+    "actions_groups": [
+        {
+            "actions": [
+                {
+                    "action": "select",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(2) > div.col-5.mb-1.text-left > select",
+                    "input_value": "100",
+                    "wait": 5
+                },
+                {
+                    "action": "select",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+                    "input_value": "Arquitectura",
+                    "wait": 5
+                },
+                {
+                    "action": "find_elements",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+                    "columns": [
+                        {
+                            "header": "Programa Educativo",
+                            "selector_pattern": "div:nth-child(1) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Asignatura",
+                            "selector_pattern": "div:nth-child(2) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Tema",
+                            "selector_pattern": "div:nth-child(3) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Sitio",
+                            "selector_pattern": "div:nth-child(4) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Enlace directo de la practica",
+                            "selector_pattern": "div:nth-child(5) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Alcance",
+                            "selector_pattern": "div:nth-child(6) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Observaciones",
+                            "selector_pattern": "div:nth-child(7) > div > div > div.col-12.px-4"
+                        }
+                    ],
+                    "wait": 1
+                }
+            ],
+            "output": {
+                "filename": "Tabla1.xlsx"
+            }
+        },
+        {
+            "actions": [
+                {
+                    "action": "select",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+                    "input_value": "Ingeniería Ambiental",
+                    "wait": 5
+                },
+                {
+                    "action": "find_elements",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+                    "columns": [
+                        {
+                            "header": "Programa Educativo",
+                            "selector_pattern": "div:nth-child(1) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Asignatura",
+                            "selector_pattern": "div:nth-child(2) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Tema",
+                            "selector_pattern": "div:nth-child(3) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Sitio",
+                            "selector_pattern": "div:nth-child(4) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Enlace directo de la practica",
+                            "selector_pattern": "div:nth-child(5) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Alcance",
+                            "selector_pattern": "div:nth-child(6) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Observaciones",
+                            "selector_pattern": "div:nth-child(7) > div > div > div.col-12.px-4"
+                        }
+                    ],
+                    "wait": 1
+                }
+            ],
+            "output": {
+                "filename": "Tabla2.xlsx"
+            }
+        },
+        {
+            "actions": [
+                {
+                    "action": "select",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+                    "input_value": "Ingeniería en Administración",
+                    "wait": 5
+                },
+                {
+                    "action": "find_elements",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+                    "columns": [
+                        {
+                            "header": "Programa Educativo",
+                            "selector_pattern": "div:nth-child(1) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Asignatura",
+                            "selector_pattern": "div:nth-child(2) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Tema",
+                            "selector_pattern": "div:nth-child(3) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Sitio",
+                            "selector_pattern": "div:nth-child(4) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Enlace directo de la practica",
+                            "selector_pattern": "div:nth-child(5) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Alcance",
+                            "selector_pattern": "div:nth-child(6) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Observaciones",
+                            "selector_pattern": "div:nth-child(7) > div > div > div.col-12.px-4"
+                        }
+                    ],
+                    "wait": 1
+                }
+            ],
+            "output": {
+                "filename": "Tabla3.xlsx"
+            }
+        },
+        {
+            "actions": [
+                {
+                    "action": "select",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+                    "input_value": "Ingeniería Civil",
+                    "wait": 5
+                },
+                {
+                    "action": "find_elements",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+                    "columns": [
+                        {
+                            "header": "Programa Educativo",
+                            "selector_pattern": "div:nth-child(1) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Asignatura",
+                            "selector_pattern": "div:nth-child(2) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Tema",
+                            "selector_pattern": "div:nth-child(3) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Sitio",
+                            "selector_pattern": "div:nth-child(4) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Enlace directo de la practica",
+                            "selector_pattern": "div:nth-child(5) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Alcance",
+                            "selector_pattern": "div:nth-child(6) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Observaciones",
+                            "selector_pattern": "div:nth-child(7) > div > div > div.col-12.px-4"
+                        }
+                    ],
+                    "wait": 1
+                }
+            ],
+            "output": {
+                "filename": "Tabla4.xlsx"
+            }
+        },
+        {
+            "actions": [
+                {
+                    "action": "select",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+                    "input_value": "Ingeniería Eléctrica",
+                    "wait": 5
+                },
+                {
+                    "action": "find_elements",
+                    "by": "CSS_SELECTOR",
+                    "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+                    "columns": [
+                        {
+                            "header": "Programa Educativo",
+                            "selector_pattern": "div:nth-child(1) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Asignatura",
+                            "selector_pattern": "div:nth-child(2) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Tema",
+                            "selector_pattern": "div:nth-child(3) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Sitio",
+                            "selector_pattern": "div:nth-child(4) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Enlace directo de la practica",
+                            "selector_pattern": "div:nth-child(5) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Alcance",
+                            "selector_pattern": "div:nth-child(6) > div > div > div.col-12.px-4"
+                        },
+                        {
+                            "header": "Observaciones",
+                            "selector_pattern": "div:nth-child(7) > div > div > div.col-12.px-4"
+                        }
+                    ],
+                    "wait": 1
+                }
+            ],
+            "output": {
+                "filename": "Tabla5.xlsx"
+            }
+        }
+
+    ]
+}
